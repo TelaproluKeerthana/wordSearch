@@ -8,13 +8,13 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping(path = "/wordgrid")
 public class WordSearchController {
 
     @Autowired
     WordgridService wordgridService;
 
-    @GetMapping("/wordgrid")
+    @GetMapping
     public String createWordGrid(@RequestParam int xAxis, @RequestParam int yAxis, @RequestParam List<String> words){
         char[][] matrix = wordgridService.generateGrid(xAxis, yAxis, words);
         StringBuilder gridToString = new StringBuilder();
